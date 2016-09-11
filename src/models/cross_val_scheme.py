@@ -3,16 +3,16 @@ from sklearn.cross_validation import StratifiedKFold
 from sklearn.metrics import roc_auc_score
 
 def cv_scheme(est, X_train, y_train, is_news, **params):
-	cv = StratifiedKFold(is_news.iloc[X_train.index.values], **params)
+	cv = StratifiedKFold(is_news, **params)
 
 	scores = []
 
 	for itrain, itest in cv:
-		Xtr = X_train.iloc[itrain].values
-		ytr = y_train.iloc[itrain].values
+		Xtr = X_train[itrain]
+		ytr = y_train[itrain]
 		
-		Xts = X_train.iloc[itest].values
-		yts = y_train.iloc[itest].values
+		Xts = X_train[itest]
+		yts = y_train[itest]
 		
 		est.fit(Xtr, ytr)
 		
