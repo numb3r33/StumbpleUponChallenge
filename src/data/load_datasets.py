@@ -7,8 +7,8 @@ sys.path.append(os.path.join(basepath, 'src'))
 
 
 def load_dataset():
-	train = pd.read_csv(os.path.join(basepath, 'data/raw/train.tsv'), delimiter='\t')
-	test = pd.read_csv(os.path.join(basepath, 'data/raw/test.tsv'), delimiter='\t')
+	train = pd.read_csv(os.path.join(basepath, 'data/raw/train.tsv'), delimiter='\t', na_values=['?'])
+	test = pd.read_csv(os.path.join(basepath, 'data/raw/test.tsv'), delimiter='\t', na_values=['?'])
 	sample_sub = pd.read_csv(os.path.join(basepath, 'data/raw/sampleSubmission.csv'))
 
 	return train, test, sample_sub
