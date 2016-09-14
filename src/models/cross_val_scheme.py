@@ -8,11 +8,11 @@ def cv_scheme(est, X_train, y_train, is_news, **params):
 	scores = []
 
 	for itrain, itest in cv:
-		Xtr = X_train[itrain]
-		ytr = y_train[itrain]
+		Xtr = X_train.iloc[itrain]
+		ytr = y_train.iloc[itrain]
 		
-		Xts = X_train[itest]
-		yts = y_train[itest]
+		Xts = X_train.iloc[itest]
+		yts = y_train.iloc[itest]
 		
 		est.fit(Xtr, ytr)
 		
